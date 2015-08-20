@@ -5,8 +5,14 @@ describe('StarIcon', () => {
     const {assert} = require('chai');
     const React = require('react/addons');
     const StarIcon = require('../StarIcon');
+    const Icon = require('../Icon');
     const {TestUtils} = React.addons;
 
-    const icon = TestUtils.renderIntoDocument(<StarIcon />);
+    const starIcon = TestUtils.renderIntoDocument(<StarIcon />);
+    const icon = Icon.mock.instances[0];
+
+    assert.deepEqual(icon.props, {
+      glyph: 'star'
+    });
   });
 });
